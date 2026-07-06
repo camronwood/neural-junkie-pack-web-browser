@@ -1,0 +1,16 @@
+{
+  "name": "browser-screenshot-smoke",
+  "description": "Pack smoke: sidecar screenshot of minimal-site fixture (no full collab).",
+  "tags": ["pack-smoke", "browser"],
+  "type": "browser-smoke",
+  "fixture_dir": "scenarios/fixtures/minimal-site",
+  "steps": [
+    {
+      "action": "assert_browser_screenshot",
+      "rel_path": "index.html",
+      "viewport": {"width": 1280, "height": 800},
+      "min_match_pct": 90,
+      "create_baseline_if_missing": true
+    }
+  ]
+}

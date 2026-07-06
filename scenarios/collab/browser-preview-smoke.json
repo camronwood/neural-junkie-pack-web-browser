@@ -1,0 +1,27 @@
+{
+  "name": "browser-preview-smoke",
+  "description": "Pack smoke: screenshot minimal-site fixture via browser sidecar (harness-only, no collab agents).",
+  "tags": ["pack-smoke", "browser"],
+  "channel": "collab-scenarios",
+  "agents": "",
+  "workspace": {
+    "path_env": "NJ_BROWSER_SMOKE_FIXTURE",
+    "workspace_flag": false,
+    "outline": false
+  },
+  "setup": {
+    "packs": ["web-browser", "software-development"]
+  },
+  "steps": [
+    {"action": "setup_pack", "pack_id": "software-development"},
+    {"action": "setup_pack", "pack_id": "web-browser"},
+    {
+      "action": "assert_browser_screenshot",
+      "rel_path": "index.html",
+      "viewport": {"width": 1280, "height": 800},
+      "full_page": true,
+      "min_png_b64_bytes": 500
+    }
+  ],
+  "cleanup": "none"
+}
